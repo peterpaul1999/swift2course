@@ -1,8 +1,10 @@
-//: Playground - noun: a place where people can play
+//variable
 
-import UIKit
+var str = "Hallo"
+str = "Tschüss"
 
-var str = "Hello, playground"
+print(str)
 
-let str2 = "Hallo 4"
+//konstanten
+let str2 = "kann nicht geändert werden"
 
