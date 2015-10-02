@@ -73,6 +73,22 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="zutaten" id="PQC-n2-Rny">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQC-n2-Rny" id="8iM-ts-UwT">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="J2A-eu-P79" id="rP5-D2-Zdx"/>
+                                    <outlet property="delegate" destination="J2A-eu-P79" id="f5e-0s-clq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -84,10 +100,48 @@
                             <constraint firstItem="qF4-hL-1i7" firstAttribute="top" secondItem="kFX-ss-VUr" secondAttribute="bottom" id="yOi-lu-39U"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="kFX-ss-VUr" id="cah-h3-VSp"/>
+                        <segue destination="JVj-AL-3RO" kind="show" identifier="showLink" id="3jA-4O-Gpb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGL-pT-ul1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1912" y="321"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="agB-DX-bOm">
+            <objects>
+                <viewController id="JVj-AL-3RO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GhA-K8-OVq"/>
+                        <viewControllerLayoutGuide type="bottom" id="BGb-kY-B7E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SJj-XC-NiW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-JG-X4K">
+                                <rect key="frame" x="226" y="285" width="148" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="15T-u4-8MC"/>
+                                    <constraint firstAttribute="width" constant="148" id="WuR-9x-YNG"/>
+                                </constraints>
+                                <state key="normal" title="Bestellen bei Amazon"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5aL-JG-X4K" firstAttribute="centerX" secondItem="SJj-XC-NiW" secondAttribute="centerX" id="LID-dT-Qlz"/>
+                            <constraint firstItem="5aL-JG-X4K" firstAttribute="centerY" secondItem="SJj-XC-NiW" secondAttribute="centerY" id="oKY-os-pg1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uH8-9G-oyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y5P-p0-bWl">

@@ -11,12 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var tableData = [Rezept]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
+    var tableData = [Rezept]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +65,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let indexPath = tableView.indexPathForSelectedRow
         let rezept = tableData[indexPath!.row]
         ctrl.currentRecipe = rezept
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            tableData.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
     
