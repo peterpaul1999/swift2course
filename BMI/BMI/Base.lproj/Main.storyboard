@@ -58,7 +58,7 @@
                                         </subviews>
                                         <animations/>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4NQ-yJ-2MC">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="70" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4NQ-yJ-2MC">
                                         <rect key="frame" x="0.0" y="43" width="100" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -71,7 +71,7 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gOc-0Z-hKB">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="10" maxValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="gOc-0Z-hKB">
                                 <rect key="frame" x="144" y="113" width="438" height="31"/>
                                 <animations/>
                                 <connections>
@@ -108,7 +108,7 @@
                                         </subviews>
                                         <animations/>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Rr-nAQ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="170" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Rr-nAQ">
                                         <rect key="frame" x="0.0" y="43" width="100" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -123,7 +123,7 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-iB-bSJ">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="170" minValue="50" maxValue="220" translatesAutoresizingMaskIntoConstraints="NO" id="aHa-iB-bSJ">
                                 <rect key="frame" x="144" y="211" width="438" height="31"/>
                                 <animations/>
                                 <connections>
@@ -151,6 +151,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCH-od-FLa">
+                                <rect key="frame" x="281" y="430" width="39" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="Du1-tD-EdK"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.84693877549999996" green="0.0" blue="0.0091901380200000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8VM-lU-roS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -160,6 +173,7 @@
                             <constraint firstItem="YSi-OK-Aju" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="71" id="Ck5-y6-gYA"/>
                             <constraint firstItem="aHa-iB-bSJ" firstAttribute="top" secondItem="gOc-0Z-hKB" secondAttribute="bottom" constant="68" id="Fis-hZ-eXd"/>
                             <constraint firstItem="aHa-iB-bSJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JjY-ge-2ho"/>
+                            <constraint firstItem="nCH-od-FLa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mpd-3Z-q0f"/>
                             <constraint firstItem="fgz-dw-s1G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NkR-Dx-SYl"/>
                             <constraint firstItem="t9m-0O-zXG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PNi-vx-HEN"/>
                             <constraint firstItem="gOc-0Z-hKB" firstAttribute="top" secondItem="t9m-0O-zXG" secondAttribute="bottom" constant="45" id="TNo-dr-B5m"/>
@@ -170,6 +184,7 @@
                             <constraint firstItem="YSi-OK-Aju" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fzY-KR-abq"/>
                             <constraint firstItem="fgz-dw-s1G" firstAttribute="top" secondItem="YSi-OK-Aju" secondAttribute="bottom" constant="24" id="let-ng-hKb"/>
                             <constraint firstItem="aHa-iB-bSJ" firstAttribute="leading" secondItem="fgz-dw-s1G" secondAttribute="trailing" constant="26" id="paW-Yj-DlL"/>
+                            <constraint firstItem="nCH-od-FLa" firstAttribute="top" secondItem="KxQ-9m-oqi" secondAttribute="bottom" constant="21" id="uyu-Wb-Ilr"/>
                             <constraint firstItem="Fzo-Jj-IXs" firstAttribute="top" secondItem="fgz-dw-s1G" secondAttribute="bottom" constant="56" id="xvK-AW-mcR"/>
                             <constraint firstItem="KxQ-9m-oqi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zEW-fK-lAv"/>
                         </constraints>
