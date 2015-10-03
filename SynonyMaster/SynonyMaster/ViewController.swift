@@ -42,18 +42,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func fetchSynonyms(forString:String, callMe: (jsonDictonary: NSDictionary) -> Void) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)){
-            let apiUrl = NSURL(string:"http://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
-            let jsonResponse = NSData(contentsOfURL: apiUrl!)
+       
+        let apiUrl = NSURL(string:"http://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
+        let request = NSURLRequest(URL:apiUrl!)
+        NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+        
             do {
-                let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonResponse!, options: []) as! NSDictionary
-                dispatch_async(dispatch_get_main_queue()){
+                let jsonDict = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
+                dispatch_async(dispatch_get_main_queue()) {
                     callMe(jsonDictonary: jsonDict)
                 }
             } catch {
                 print(error)
             }
-        }
+        }.resume()
     }
     
     override func viewDidLoad() {
