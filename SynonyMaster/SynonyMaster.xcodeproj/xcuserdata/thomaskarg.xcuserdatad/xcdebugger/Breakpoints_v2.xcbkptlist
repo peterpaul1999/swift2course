@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SynonyMaster/ViewController.swift"
-            timestampString = "465562579.333275"
+            timestampString = "465580045.873904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getSynonyms(_:)"
             landmarkType = "5">
          </BreakpointContent>

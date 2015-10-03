@@ -21,35 +21,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func goTapped(sender: AnyObject) {
         let searchTerm = searchField.text
-        synonyme = getSynonyms(searchTerm!)
+        getSynonyms(searchTerm!)
     }
     
-    func getSynonyms(forString: String) ->[String]{
-        var foundSynonyms = [String]()
-        let jsonDictionary = fetchSynonyms(forString)
-        let termsList = jsonDictionary["synsets"] as! NSArray
-        for synsetData in termsList {
-            let currentSet = synsetData as! NSDictionary
-            for currentTerm in currentSet["terms"] as! NSArray {
-                let term = currentTerm as! NSDictionary
-                foundSynonyms.append(term["term"] as! String)
+    func getSynonyms(forString: String){
+        
+        fetchSynonyms(forString) {
+            (jsonDictionary) in
+            var foundSynonyms = [String]()
+            let termsList = jsonDictionary["synsets"] as! NSArray
+            for synsetData in termsList {
+                let currentSet = synsetData as! NSDictionary
+                for currentTerm in currentSet["terms"] as! NSArray {
+                    let term = currentTerm as! NSDictionary
+                    foundSynonyms.append(term["term"] as! String)
+                }
+            }
+            self.synonyme = foundSynonyms
+        }
+    }
+    
+    func fetchSynonyms(forString:String, callMe: (jsonDictonary: NSDictionary) -> Void) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)){
+            let apiUrl = NSURL(string:"http://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
+            let jsonResponse = NSData(contentsOfURL: apiUrl!)
+            do {
+                let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonResponse!, options: []) as! NSDictionary
+                dispatch_async(dispatch_get_main_queue()){
+                    callMe(jsonDictonary: jsonDict)
+                }
+            } catch {
+                print(error)
             }
         }
-        return foundSynonyms
-    }
-    
-    func fetchSynonyms(forString:String) ->NSDictionary {
-        let apiUrl = NSURL(string:"http://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
-        let jsonResponse = NSData(contentsOfURL: apiUrl!)
-        var jsonDict = [:]
-        do {
-            jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonResponse!, options: []) as! NSDictionary
-        
-        } catch {
-            print(error)
-        }
-        
-        return jsonDict
     }
     
     override func viewDidLoad() {
