@@ -27,12 +27,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func getSynonyms(forString: String) ->[String]{
         var foundSynonyms = [String]()
         let jsonDictionary = fetchSynonyms(forString)
-        
+        let termsList = jsonDictionary["synsets"] as! NSArray
+        for synsetData in termsList {
+            let currentSet = synsetData as! NSDictionary
+            for currentTerm in currentSet["terms"] as! NSArray {
+                let term = currentTerm as! NSDictionary
+                foundSynonyms.append(term["term"] as! String)
+            }
+        }
         return foundSynonyms
     }
     
     func fetchSynonyms(forString:String) ->NSDictionary {
-        let apiUrl = NSURL(string:"https://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
+        let apiUrl = NSURL(string:"http://www.openthesaurus.de/synonyme/search?q=\(forString)&format=application/json")
         let jsonResponse = NSData(contentsOfURL: apiUrl!)
         var jsonDict = [:]
         do {
