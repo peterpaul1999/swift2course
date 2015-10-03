@@ -49,10 +49,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="evd-r1-lto">
-                                <rect key="frame" x="210" y="40" width="185" height="30"/>
+                                <rect key="frame" x="195" y="38" width="210" height="30"/>
                                 <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-rr-76F">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
+                                        <animations/>
+                                    </activityIndicatorView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRB-Lm-eQL">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <rect key="frame" x="25" y="0.0" width="150" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="iKs-a4-Klc"/>
@@ -62,7 +66,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9b-Jq-jXY">
-                                        <rect key="frame" x="155" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="180" y="0.0" width="30" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="bD9-bz-t53"/>
@@ -90,6 +94,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Cu0-rr-76F" id="k5A-7r-2IJ"/>
                         <outlet property="searchField" destination="vRB-Lm-eQL" id="2Sa-xV-KDj"/>
                         <outlet property="tableView" destination="cq6-zV-BBC" id="PNE-4S-Has"/>
                     </connections>

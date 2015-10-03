@@ -18,9 +18,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func goTapped(sender: AnyObject) {
         let searchTerm = searchField.text
+        activityIndicator.startAnimating()
         getSynonyms(searchTerm!)
     }
     
@@ -37,6 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     foundSynonyms.append(term["term"] as! String)
                 }
             }
+            self.activityIndicator.stopAnimating()
             self.synonyme = foundSynonyms
         }
     }
@@ -55,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             } catch {
                 print(error)
+                self.activityIndicator.stopAnimating()
             }
         }.resume()
     }
